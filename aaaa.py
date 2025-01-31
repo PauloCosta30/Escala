@@ -1,6 +1,46 @@
+import streamlit
+import pandas
+import openpyxl
 import streamlit as st
 import pandas as pd
 import os
+
+
+import streamlit as st
+import pandas as pd
+import io  # Para salvar o Excel na memória
+
+FILE_NAME = "escala_lab.xlsx"
+
+# Carregar dados
+def load_data():
+    try:
+        return pd.read_excel(FILE_NAME)
+    except FileNotFoundError:
+        return pd.DataFrame(columns=["Data", "Período", "Sala", "Nome"])
+
+# Salvar dados
+def save_data(df):
+    df.to_excel(FILE_NAME, index=False, engine="openpyxl")
+
+# Carregar a escala
+escala = load_data()
+
+st.title("Gerenciamento de Escala de Laboratório")
+
+# Criar um buffer de memória para salvar o Excel antes de baixar
+output = io.BytesIO()
+with pd.ExcelWriter(output, engine="openpyxl") as writer:
+    escala.to_excel(writer, index=False)
+output.seek(0)
+
+# Botão para baixar o Excel
+st.download_button(
+    label="Baixar Planilha",
+    data=output,
+    file_name="escala_lab.xlsx",
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+)
 
 # Nome do arquivo Excel
 FILE_NAME = "escala_lab.xlsx"
