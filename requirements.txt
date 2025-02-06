@@ -1,11 +1,3 @@
-streamlit 
+streamlit
 pandas
-os
-datetime
-timedelta
-io  
 smtplib
-email.mime.multipart
-MIMEMultipart
-email.mime.text 
-MIMEText
