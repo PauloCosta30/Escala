@@ -1,6 +1,11 @@
-import streamlit as st
-import pandas as pd
-import os
-from datetime import datetime, timedelta
-import io  # Para salvar o Excel na memória
-import smtplib
+streamlit 
+pandas
+os
+datetime
+timedelta
+io  
+smtplib
+email.mime.multipart
+MIMEMultipart
+email.mime.text 
+MIMEText
