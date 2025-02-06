@@ -4,5 +4,3 @@ import os
 from datetime import datetime, timedelta
 import io  # Para salvar o Excel na memória
 import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
